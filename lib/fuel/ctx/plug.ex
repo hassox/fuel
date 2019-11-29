@@ -27,5 +27,16 @@ if Code.ensure_loaded?(Plug) do
     @spec fetch_ctx(Plug.Conn.t()) :: Fuel.Ctx.t()
     def fetch_ctx(%{private: %{Fuel => %{ctx: ctx}}}), do: ctx
     def fetch_ctx(_), do: Fuel.Ctx.background()
+
+    @doc "Adds a value to the context on the plug returning a new plug"
+    @spec with_value(Plug.Conn.t(), term(), term()) :: Plug.Conn.t()
+    def with_value(conn, key, value) do
+      ctx =
+        conn
+        |> fetch_ctx()
+        |> Fuel.Ctx.with_value(key, value)
+
+      with_ctx(conn, ctx)
+    end
   end
 end
