@@ -43,6 +43,7 @@ defmodule Fuel.MixProject do
   defp deps do
     [
       {:ctx, "~> 0.5.0"},
+      {:plug, ">= 1.8.0", optional: true},
       {:dialyxir, "~> 0.5.1", only: :dev, runtime: false},
       {:ex_doc, "~> 0.21", only: :dev, runtime: false}
     ]
