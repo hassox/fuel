@@ -52,7 +52,7 @@ by adding `fuel` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:fuel, "~> 0.1.0"}
+    {:fuel, "~> 0.3.0"}
   ]
 end
 ```
